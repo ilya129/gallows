@@ -1,6 +1,6 @@
 class ConsoleInterface
   FIRGURES =
-    Dir[__dir__ + '/../data/figures/*.txt'].
+    Dir[__dir__ + "/../data/figures/*.txt"].
     sort.
     map { |file_name| File.read(file_name) }
 
@@ -37,11 +37,11 @@ class ConsoleInterface
           letter
         end
       end
-      result.join(' ')
+      result.join(" ")
   end
 
   def errors_to_show
-    @game.errors.join(', ')
+    @game.errors.join(", ")
   end
 
   def get_input

@@ -1,3 +1,5 @@
+require 'colorize'
+
 class ConsoleInterface
   FIRGURES =
     Dir[__dir__ + '/../data/figures/*.txt'].
@@ -9,10 +11,12 @@ class ConsoleInterface
   end
 
   def print_out
+    game_errors = "(#{@game.errors_made}):"
+
     puts <<~END
-      Слово: #{word_to_show}
-      #{firgure}
-      Ошибки (#{@game.errors_made}): #{errors_to_show}
+      #{'Слово:'.colorize(:blue)} #{word_to_show.colorize(:blue)}
+      #{firgure.colorize(:yellow)}
+      #{'Ошибки'.colorize(:red)} #{game_errors.colorize(:red)} #{errors_to_show.colorize(:red)}
       У вас осталось ошибок: #{@game.errors_allowed}
 
     END
